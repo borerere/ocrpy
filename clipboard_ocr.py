@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import cv2
+import pyperclip
 import numpy as np
 from PIL import ImageGrab
 from pytesseract import pytesseract
@@ -32,6 +33,9 @@ def ocr_clipboard_image():
     # 改行を削除する
     text = text.replace('\n', '')
     print("[output](改行削除):\n", text)
+
+    # テキストをクリップボードにコピーする
+    pyperclip.copy(text)
 
 if __name__ == "__main__":
     print("[input]スクリーンショットを[Win+S]キーでクリップボードにコピーしてください。")
